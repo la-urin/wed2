@@ -1,0 +1,9 @@
+# intellj
+/.idea/
+
+# npm
+node_modules
+package-lock.json
+*.log
+*.gz
+
