@@ -1,0 +1,95 @@
+@import 'themes';
+@import 'functionality';
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font: 1em "Fira Sans", sans-serif;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  @include themify($themes) {
+    background-color: themed('main-back');
+    color: themed('main-front');
+  }
+}
+
+header, footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+article{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
+}
+
+a, a:visited {
+  text-decoration: none;
+  @include themify($themes) {
+    color: themed('main-front');
+  }
+}
+button:active, button:hover {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+button {
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  color: inherit;
+  padding: 0 10px;
+  line-height: 29px;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+//.row label {
+//  min-width: 15rem;
+//}
+
+
+

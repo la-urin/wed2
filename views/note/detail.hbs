@@ -1,0 +1,42 @@
+<h1>Edit {{title}}</h1>
+
+<form action="/note/{{_id}}?_method=PUT" method="POST" class="form">
+
+  <div class="row">
+    <label for="title">Title</label>
+    <input name="title" id="title" type="text" value="{{title}}" required/>
+  </div>
+
+  <div class="row">
+    <label for="importance">Importance</label>
+    <input name="importance" id="importance" type="range" min="1" max="4" value="{{importance}}"/>
+  </div>
+
+  <div class="row">
+    <label for="dueDate">Due Date</label>
+    <input name="dueDate" id="dueDate" type="date" value="{{dueDate}}"/>
+  </div>
+
+  <div class="row">
+    <label for="done">Done</label>
+    <input name="done" id="done" type="checkbox" value="true" {{#if done}}checked{{/if}} />
+  </div>
+
+  <div class="row">
+    <label for="description">Description</label>
+    <textarea name="description" id="description" rows="5">{{description}}</textarea>
+  </div>
+
+  <button type="submit">
+    Save
+  </button>
+
+</form>
+
+<div class="row">
+  <form action="/" method="GET">
+    <button type="submit">
+      Back
+    </button>
+  </form>
+</div>

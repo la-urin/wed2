@@ -7,3 +7,7 @@ package-lock.json
 *.log
 *.gz
 
+#express
+/built/
+/public/
+

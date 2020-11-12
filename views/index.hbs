@@ -1,0 +1,85 @@
+<header>
+  <form action="/" method="GET">
+    <input type="hidden" name="theme" value="{{ nextTheme }}"/>
+    <button type="submit">Change Theme</button>
+  </form>
+
+  <form action="/" method="GET">
+    <input type="hidden" name="showFinished" value="{{negate showFinished}}"/>
+    <button type="submit">
+      {{#if showFinished}}
+        Show open notes
+      {{else}}
+        Show all notes
+      {{/if}}
+    </button>
+  </form>
+</header>
+
+{{#if notes}}
+<article>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        <a href="/?order=title&orderDir={{ternary orderDir 1 -1 1}}">Title</a>
+      </th>
+      <th>
+        <a href="/?order=description&orderDir={{ternary orderDir 1 -1 1}}">Description</a>
+      </th>
+      <th>
+        <a href="/?order=importance&orderDir={{ternary orderDir 1 -1 1}}">Importance</a>
+      </th>
+      <th>
+        <a href="/?order=dueDate&orderDir={{ternary orderDir 1 -1 1}}">DueDate</a>
+      </th>
+      <th>
+        <a href="/?order=done&orderDir={{ternary orderDir 1 -1 1}}">Done</a>
+      </th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each notes}}
+      <tr>
+        <td>{{title}}</td>
+        <td class="hidden-small">{{description}}</td>
+        <td>{{importance}}</td>
+        <td>{{dueDate}}</td>
+        <td class="hidden-medium">
+          <span class="icon {{#if done}}true{{else}}false{{/if}}"></span>
+        </td>
+        <td>
+          <form action="/note/{{_id}}" method="GET">
+            <button type="submit">
+              Edit
+            </button>
+          </form>
+        </td>
+        <td>
+          <form action="/note/{{_id}}?_method=DELETE" method="POST" >
+            <button type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+
+  {{else}}
+  <div class="row">
+    <p>Everything done!</p>
+  </div>
+  {{/if}}
+</article>
+<footer>
+  <form action="/new" method="GET">
+    <button type="submit">
+      Create new Note
+    </button>
+  </form>
+</footer>
+

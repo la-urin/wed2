@@ -1,0 +1,14 @@
+@import 'variables';
+
+$themes: (
+  dark: (
+    main-back: $c--black,
+    main-front: $c--white,
+    main-hover: $c--grey,
+  ),
+  light: (
+    main-back: $c--white,
+    main-front: $c--black,
+    main-hover: $c--grey,
+  )
+);

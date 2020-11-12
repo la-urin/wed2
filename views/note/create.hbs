@@ -1,0 +1,36 @@
+<h1>Create New Note</h1>
+
+<form action="/note" method="POST" class="form">
+
+  <div class="row">
+    <label for="title">Title</label>
+    <input name="title" id="title" type="text" required/>
+  </div>
+
+  <div class="row">
+    <label for="importance">Importance</label>
+    <input name="importance" id="importance" type="range" min="1" max="4"/>
+  </div>
+
+  <div class="row">
+    <label for="dueDate">Due Date</label>
+    <input name="dueDate" id="dueDate" type="date"/>
+  </div>
+
+  <div class="row">
+    <label for="description">Description</label>
+    <textarea name="description" id="description" rows="5"></textarea>
+  </div>
+
+  <button type="submit">
+    Save
+  </button>
+</form>
+<div class="row">
+  <form action="/" method="GET">
+    <button type="submit">
+      Back
+    </button>
+  </form>
+</div>
+
