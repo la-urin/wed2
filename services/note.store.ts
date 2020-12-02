@@ -26,7 +26,7 @@ export class NoteStore {
     return {};
   }
 
-  public async getAll(showFinished: string, order: string, orderDir: string) {
+  public async getAll(showFinished: boolean, order: string, orderDir: string) {
     const orderParams = {};
     orderParams[order] = Number(orderDir);
 
