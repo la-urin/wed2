@@ -1,6 +1,6 @@
-import {noteStore} from '../services/note.store.js';
 import {Note} from "../models/note";
 import {CookieHelper} from '../utils/cookiehelper.util'
+import { noteStore } from "../built/services/note.store";
 
 const THEME = 'theme';
 const ORDER = 'order';

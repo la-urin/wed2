@@ -1,28 +1,32 @@
 import Datastore from 'nedb-promises';
+import {Note} from "../models/note";
 
 export class NoteStore {
-  constructor(db) {
-    this.db = db || new Datastore({filename: './data/note.db', autoload: true});
+
+  db: Datastore;
+
+  constructor() {
+    this.db = new Datastore({filename: './data/note.db', autoload: true});
   }
 
-  async getById(id) {
+  public async getById(id: string) {
     return await this.db.findOne({_id: id});
   }
 
-  async insert(note) {
+  public async insert(note: Note) {
     return await this.db.insert(note);
   }
 
-  async update(id, title, description, importance, dueDate, done) {
+  public async update(id: string, title: string, description: string, importance: number, dueDate: string, done: boolean) {
     await this.db.update({_id: id}, {$set: {title, description, importance, dueDate, done}});
   }
 
-  async deleteById(id) {
-    await this.db.remove({_id: id});
+  public async deleteById(id: string) {
+    await this.db.remove({_id: id}, {});
     return {};
   }
 
-  async getAll(showFinished, order, orderDir) {
+  public async getAll(showFinished: string, order: string, orderDir: string) {
     const orderParams = {};
     orderParams[order] = Number(orderDir);
 
