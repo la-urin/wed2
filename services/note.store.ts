@@ -30,8 +30,6 @@ export class NoteStore {
     const orderParams = {};
     orderParams[order] = Number(orderDir);
 
-    console.log('getAll: ', showFinished, order, orderDir);
-
     const where = showFinished ? {} : {'done': false};
     return {notes: await this.db.find(where).sort(orderParams)};
   }

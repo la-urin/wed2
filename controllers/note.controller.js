@@ -20,7 +20,6 @@ export class NoteController {
     if (id === '-1') {
       await noteStore.insert(new Note()).then(note => id = note._id);
     }
-    console.log(id);
     res.render('note/detail', {theme: this.getTheme(req, res), ...await noteStore.getById(id)});
   }
 
